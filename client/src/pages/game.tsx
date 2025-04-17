@@ -26,7 +26,7 @@ export default function Game() {
   // Get game state
   const { data: game, isLoading, error } = useQuery({
     queryKey: [`/api/games/${gameId}`],
-    refetchInterval: 2000,  // Refresh every 2 seconds to get AI moves
+    refetchInterval: import.meta.env.VITE_GAME_REFRESH_INTERVAL || 2000,  // Use environment variable for refresh interval
   });
 
   // Draw cards mutation
